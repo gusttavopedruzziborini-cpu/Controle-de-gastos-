@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e2a2f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Gastos">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="icon" href="icons/icon-192.png">
+<title>Meus Gastos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <header class="hero">
+    <nav class="months">
+      <button id="prev" aria-label="Mês anterior">‹</button>
+      <h1 id="monthLabel"></h1>
+      <button id="next" aria-label="Próximo mês">›</button>
+    </nav>
+    <p class="cap">Total gasto</p>
+    <p id="total" class="total">R$ 0,00</p>
+    <p id="count" class="count"></p>
+    <div id="bar" class="bar" aria-hidden="true"></div>
+    <ul id="legend" class="legend"></ul>
+  </header>
+
+  <section class="list-wrap">
+    <h2>Lançamentos</h2>
+    <ul id="list" class="list"></ul>
+    <p id="empty" class="empty" hidden>Nada por aqui ainda. Toque em + para registrar seu primeiro gasto.</p>
+  </section>
+</main>
+
+<button id="fab" class="fab" aria-label="Adicionar gasto">+</button>
+
+<dialog id="dlg">
+  <form id="form" class="sheet">
+    <h2 id="dlgTitle">Novo gasto</h2>
+    <input type="hidden" id="id">
+    <label>Descrição<input id="desc" required maxlength="60" placeholder="Ex.: almoço"></label>
+    <label>Valor (R$)<input id="valor" required inputmode="decimal" placeholder="0,00" autocomplete="off"></label>
+    <label>Data<input id="data" type="date" required></label>
+    <fieldset>
+      <legend>Categoria</legend>
+      <div id="chips" class="chips"></div>
+    </fieldset>
+    <p id="erro" class="erro" role="alert"></p>
+    <div class="actions">
+      <button type="button" id="cancel" class="ghost">Cancelar</button>
+      <button type="submit" class="primary">Salvar gasto</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
